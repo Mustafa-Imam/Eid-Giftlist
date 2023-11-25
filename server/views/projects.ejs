@@ -1,0 +1,54 @@
+<%- include('partials/header', { title: 'Projects' }) %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+</head>
+<body>
+
+    <div class="sticky-footer-wrapper">
+        <div class="sticky-footer-content">
+            <article>
+                <h1>
+                    <center>My Projects!</center>
+                </h1>
+            </article>
+
+            <article>
+                <p>I have done several python projects including Object Oriented Programming and creating programs such as "Calculator" or
+                "Name Finder" and etc. I also did a Keyboard Detection Authentication System Project over the summer for the Special 
+                Topics of IoT course. Me and my group members developed an authentication system that works based on verifying the user's keyboard
+                touch pattern by taking into account factors such as hold time and lift-off time between each key button. This way, even
+                if the correct password is entered, only the user with the correct keyboard pattern (the one that matches the user's 
+                specific keyboard typing style) will be able to gain access to the system.</p>
+
+                <p>We implemented this system by using Machine Learning by training our program. We told the model to take in 100 inputs of
+                the user's unique typing pattern and style for a specific password, which was typed by 3 other group members. The model
+                was able to differentiate between the bogus users' typing pattern and the authentic user's typing password for the same
+                password that was typed. This was done using a percentage bar with a success point of 95%. In other words, whichever
+                user's unique typing pattern and style matched either 95% or more with the actual authentic user's typing pattern and
+                style, then that specific user would be authenticated and thus would be able to access the system.</p>
+
+                <p>This project of ours proved to be very successful and effective at authenticating the desired user's identity through a
+                very sophisticated keyboard typing pattern detection system. We had a blast doing this project and are very happy it
+                turned out to be successful!</p>
+
+                <p>I also worked on many networking, hacking and brain challenges at TACOPS hosted by NETSOC 2023 of March! I had a team of 4 
+                and we came 15th place out of 25 teams which wasn't bad for our first time (I guess lol). We did physical "break the lock" challenges 
+                aswell which brought the whole hacking experience to life. We went through deep encryption/decryption techniques, networking commands 
+                and hacking modules to really improve on our networking skills and immerse ourselves in the realm of IT to know what it really feels 
+                like in the real world! All in all, it was a blast, and I am truly grateful for the experience.</p>
+            </article>
+
+            <img src="/assets/images/tacops.jpg" alt="TACOPS" width="710px" height="512px">
+            <img src="/assets/images/keyboard.jpg" alt="TACOPS" width="700px" height="512px">
+
+            <div class="clear"></div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<%- include('partials/footer') %>

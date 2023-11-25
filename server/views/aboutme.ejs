@@ -1,0 +1,47 @@
+<%- include('partials/header', { title: 'About Me' }) %>
+
+<style>
+    .media-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; 
+    }
+    .media-container img,
+    .media-container video {
+        width: 408px;
+        height: 512px;
+    }
+    article h1 {
+        text-align: center;
+    }
+    article p {
+        text-align: justify;
+        max-width: 800px; 
+        margin: auto; 
+    }
+</style>
+
+<div class="sticky-footer-wrapper">
+    <div class="sticky-footer-content">
+        <article>
+            <h1 class="aboutme-title">Who Am I?</h1>
+            <p>Hi there, my name is Mustafa Imam. I am a 21 year old Ontario Tech student currently in the Networking and IT Security Program for my 
+            third year. I love to eat out, travel, hang out with friends and family, read books, watch movies, play video games, and workout. My goal
+            for the end of the year is to be able to get an internship for the summer of 2024 in an IT company to further my credentials and experience. 
+            </p>
+        </article>
+
+        <div class="media-container">
+            <img src="/assets/images/me_1.jpg" alt="My Picture">
+            <video poster="/assets/images/me_2.jpg" controls>
+                <source src="/assets/videos/video_1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>
