@@ -1,3 +1,3 @@
-# Tournament
+# Eid Giftlist
 
-This is our project where we showcase to you our tournament hosting website. Enjoy!
+This is our project where we showcase to you our Eid Giftlist website. Enjoy!
