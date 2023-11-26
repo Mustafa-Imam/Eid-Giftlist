@@ -10,23 +10,17 @@
             <table class="table table-bordered table-striped table-hover mt-3"> 
                 <thead>
                     <tr class="d-flex"> 
-                        <th class="text-center col-2">Make</th>
-                        <th class="text-center col-2">Model</th>
-                        <th class="text-center col-2">Year</th>
-                        <th class="text-center col-2">Colour</th>
+                        <th class="text-center col-2">Item</th>
+                        <th class="text-center col-2">Amount</th>
                         <th class="text-center col-2">Price</th>
-                        <th class="text-center col-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for(let count = 0; count < eidgiftlist.length; count++) { %>
                         <tr class="d-flex">
-                            <td class="text-center col-2"><%= eidgiftlist[count].Make %></td>
-                            <td class="text-center col-2"><%= eidgiftlist[count].Model %></td>
-                            <td class="text-center col-2"><%= eidgiftlist[count].Year %></td>
-                            <td class="text-center col-2"><%= eidgiftlist[count].Colour %></td>
+                            <td class="text-center col-2"><%= eidgiftlist[count].Item %></td>
+                            <td class="text-center col-2"><%= eidgiftlist[count].Amount %></td>
                             <td class="text-center col-2"><%= eidgiftlist[count].Price %></td>
-                            <td class="text-center col-2">
                                 <a href="/eidgiftlist/edit/<%= eidgiftlist[count]._id %>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt"></i> Edit
                                 </a>

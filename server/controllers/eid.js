@@ -29,11 +29,9 @@ module.exports.DisplayAddgift = (req, res, next) => {
 module.exports.Addgift = async (req, res, next) => {
     try {
         let newgift = new gift({
-            "Make": req.body.Make,
-            "Model": req.body.Model,
-            "Year": req.body.Year,
-            "Colour": req.body.Colour,
-            "Price": req.body.Price
+            "Item": req.body.Item,
+            "Amount": req.body.Amount,
+            "Price": req.body.Price,
         });
         await gift.create(newgift);
         res.redirect('/eidgiftlist');
@@ -67,11 +65,9 @@ module.exports.Editgift = async (req, res, next) => {
     const id = req.params.id;
 
     let updatedGift = {
-        "Make": req.body.Make,
-        "Model": req.body.Model,
-        "Year": req.body.Year,
-        "Colour": req.body.Colour,
-        "Price": req.body.Price
+        "Item": req.body.Item,
+        "Amount": req.body.Amount,
+        "Price": req.body.Price,
     };
 
     try {
