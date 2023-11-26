@@ -3,11 +3,9 @@ let mongoose = require('mongoose');
 // create a model class
 
 let eidModel = mongoose.Schema({
-    Make: String,
-    Model: String,
-    Year: String,
-    Colour: String,
-    Price: String
+    Item: String,
+    Amount: String,
+    Price: String,
 },
 {
 
