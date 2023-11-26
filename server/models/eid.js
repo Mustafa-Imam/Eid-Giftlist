@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 
 // create a model class
 
-let carModel = mongoose.Schema({
+let eidModel = mongoose.Schema({
     Make: String,
     Model: String,
     Year: String,
@@ -11,8 +11,8 @@ let carModel = mongoose.Schema({
 },
 {
 
-    collection: "car"
+    giftlist: "eid"
 
 });
 
-module.exports = mongoose.model("car", carModel);
+module.exports = mongoose.model("eid", eidModel);

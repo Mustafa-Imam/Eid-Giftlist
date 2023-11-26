@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-<!-- Content for the Edit page -->
+<!-- Content for the Add page -->
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -11,57 +11,47 @@
                     <label for="makeTextField">Make</label>
                     <input type="text" class="form-control"
                     id="makeTextField"
-                    placeholder="Enter the cars make"
-                    name="Make" 
-                    value="<%= car.Make %>"
-                    required>
+                    placeholder="Enter the make of the gift"
+                    name="Make" required>
                 </div>
 
                 <div class="form-group">
                     <label for="modelTextField">Model</label>
                     <input type="text" class="form-control"
                     id="modelTextField"
-                    placeholder="Enter the car's model"
-                    name="Model" 
-                    value="<%= car.Model %>"
-                    required>
+                    placeholder="Enter the gifts model"
+                    name="Model" required>
                 </div>
 
                 <div class="form-group">
                     <label for="yearTextField">Year</label>
                     <input type="text" class="form-control"
                     id="yearTextField"
-                    placeholder="Enter the year the car was launched"
-                    name="Year" 
-                    value="<%= car.Year %>"
-                    required>
+                    placeholder="Enter the year the gift was launched"
+                    name="Year" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="colourTextField">Colour</label>
+                    <label for="colourTextArea">Colour</label>
                     <input type="text" class="form-control"
                     id="colourTextField"
-                    placeholder="Enter the colour of the car"
-                    name="Colour" 
-                    value="<%= car.Colour %>"
-                    required>
+                    placeholder="Enter the gifts colour"
+                    name="Colour" required>
                 </div>
 
                 <div class="form-group">
                     <label for="priceTextField">Price</label>
                     <input type="text" class="form-control"
                     id="priceTextField"
-                    placeholder="Enter the car's price"
-                    name="Price" 
-                    value="<%= car.Price %>"
-                    required>
+                    placeholder="Enter the gifts price"
+                    name="Price" required>
                 </div>
 
                 <div class="form-group text-center mt-3"> <!-- Centered and with margin -->
                     <button class="btn btn-primary" type="submit">
                         <i class="fas fa-edit"></i> Submit</button>
                 
-                        <a href="/carcollection" class="btn btn-warning">
+                        <a href="/eidgiftlist" class="btn btn-warning">
                             <i class="fas fa-times"></i> Cancel</a>
                 </div>
 
@@ -69,6 +59,6 @@
         </div>
 
     </div>
-</div> 
+</div>
 
 <%- include('../partials/footer.ejs') %>

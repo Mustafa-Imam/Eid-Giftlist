@@ -29,10 +29,10 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let carRouter = require('../routes/cars');
+let eidRouter = require('../routes/eid');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/carcollection', carRouter);
+app.use('/eidgiftlist', eidRouter);
 
 // POST route from contact form
 app.post('/send', (req, res) => {
