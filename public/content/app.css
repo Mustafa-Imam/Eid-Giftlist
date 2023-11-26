@@ -1,6 +1,7 @@
 body {
   padding: 50px !important;
   margin: 0 !important; /* Resets margin */
+  background: linear-gradient(87.4deg, rgb(190, 246, 226) 1.9%, rgb(135, 243, 180) 49.7%, rgb(2, 255, 116) 100.5%);
 }
 
 .aboutme-title {
@@ -66,15 +67,14 @@ body {
   width: 100% !important;
   padding: 10px !important;
   margin-top: 5px !important;
-  margin-bottom: 20px !important;
+  margin-bottom: 18px !important;
   border-radius: 5px !important;
-  border: 1px solid #ccc !important;
+  border: 2px solid rgb(74, 73, 73)c8c !important;
   background-color: white !important;
   color: black !important;
 }
 
 .contact-form input[type="submit"] {
-  background-color: black !important; /* Sets the button's background color to black */
   color: white !important; /* Sets the text color to white */
   padding: 10px 20px !important;
   border: none !important;
@@ -84,29 +84,30 @@ body {
 }
 
 .contact-form input[type="submit"]:hover {
-  background-color: #474747 !important; /* A lighter shade of black for hover */
+  background-color: #000000 !important; /* A lighter shade of black for hover */
 }
 
 /* Additional styles to show placeholder text */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: #888 !important;
+  font-style: italic;
 }
 
 /* Updates styles for the submit button */
 .submit-button {
-  background-color: black !important; /* Sets the button's background color to black */
   color: white !important; /* Sets the text color to white */
   padding: 10px 20px !important;
   border: none !important;
-  border-radius: 5px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
   margin-top: 10px !important;
+  margin-bottom: 12px !important; 
   transition: background-color 0.3s ease !important; /* Transitions for smooth background color change */
 }
 
 .submit-button:hover {
-  background-color: #333333 !important; /* A lighter shade when hovered */
+  background-color: #333333 !important; /* A darker shade when hovered */
 }
 
 .media-container {
@@ -118,3 +119,4 @@ body {
   margin: 0 auto;
   height: auto;
 }
+
