@@ -5,7 +5,7 @@ const eid = require('../models/eid');
 // Get router for Read Operation
 module.exports.ReadgiftData = async (req, res, next) => {
     try {
-        const eidgiftlift = await eid.find();
+        const eidgiftlist = await eid.find();
         res.render("eid/giftlist", {
             title: "Eid Giftlist",
             eidgiftlist: eidgiftlist
