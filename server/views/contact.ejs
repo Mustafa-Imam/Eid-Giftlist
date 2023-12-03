@@ -1,54 +1,112 @@
 <%- include('partials/header', { title: 'Contact' }) %>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact</title>
-    <style>
+<div class="sticky-footer-wrapper">
+    <div class="sticky-footer-content">
+        <article>
+            <h1>Contact Below!</h1>
+        </article>
+
+        <article>
+            <form action="/send" method="post" name="send_message" class="contact-form">
+                <div>
+                    <label for="name"><b>Name:</b></label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="email"><b>Email:</b></label>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div>
+                    <label for="comments"><b>Comments:</b></label>
+                    <textarea name="comments" id="comments" placeholder="Your Message" cols="60" rows="12" required></textarea>
+                </div>
+                <div style="display: none;">
+                    <input type="hidden" name="securityCheck" value="4">
+                </div>
+                <div> 
+                    <button type="submit" class="submit-button">Send</button>
+                </div>
+            </form>
+        </article>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+
+<style>
+    /* Additional styling for the contact form */
+    .sticky-footer-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .sticky-footer-content {
+        text-align: center;
+        max-width: 800px;
+        padding: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Darker drop shadow */
+    }
+
+    .contact-form {
+        margin-top: 20px;
+    }
+
+    /* Apply drop shadow to all boxes */
+    input[type="text"],
+    input[type="email"],
+    textarea,
     .submit-button {
-        background-color: rgba(38, 38, 38, 0.5) !important; /* Sets the button's background color to black */
-        /* Add any additional styling as needed */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker drop shadow */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Stylized button */
+    .submit-button {
+        background-color: rgba(38, 38, 38, 0.5);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .submit-button:hover {
+        background-color: rgba(38, 38, 38, 0.8);
     }
 </style>
 
-</head>
-<body>
 
-    <div class="sticky-footer-wrapper">
-        <div class="sticky-footer-content">
-            <article>
-                <h1>
-                    <center>Contact Below!</center>
-                </h1>
-            </article>
 
-            <article>
-                <form action="/send" method="post" name="send_message" class="contact-form">
-                    <div>
-                        <label for="name"><b>Name:</b></label>
-                        <input type="text" name="name" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div>
-                        <label for="email"><b>Email:</b></label>
-                        <input type="email" name="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div>
-                        <label for="comments"><b>Comments:</b></label>
-                        <textarea name="comments" id="comments" placeholder="Your Message" cols="60" rows="12" required></textarea>
-                    </div>
-                    <div style="display: none;">
-                        <input type="hidden" name="securityCheck" value="4">
-                    </div>
-                    <div> 
-                        <button type="submit" class="submit-button">Send</button>
-                    </div>
-                </form>
-            </article>
 
-            <div class="clear"></div>
-        </div>
-    </div>
-</body>
-</html>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Apply a fade-in effect to the form on page load
+        const form = document.querySelector('.contact-form');
+        form.style.opacity = '0.2';
+        form.style.transition = 'opacity 1s ease-in-out';
+
+        window.setTimeout(function() {
+            form.style.opacity = '1';
+        }, 500);
+    });
+</script>
+
+
+
+
 
 <%- include('partials/footer') %>
