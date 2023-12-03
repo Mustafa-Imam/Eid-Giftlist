@@ -8,9 +8,6 @@ router.get('/', function(req, res, next) {
 router.get('/aboutus', function(req, res, next) {
   res.render('aboutus', { title: 'About Us' });
 });
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects' });
-});
 router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
