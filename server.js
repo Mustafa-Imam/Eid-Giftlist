@@ -4,27 +4,25 @@
  * Module dependencies.
  */
 
-require('dotenv').config();
-
 var app = require('./server/config/app');
 var debug = require('debug')('classproject:server');
 var http = require('http');
 
 /**
- * Gets port from environment and store in Express.
+ * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '1000');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Creates HTTP server.
+ * Create HTTP server.
  */
 
 var server = http.createServer(app);
 
 /**
- * Listens on provided port, on all network interfaces.
+ * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
@@ -32,7 +30,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalizes a port into a number, string, or false.
+ * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
@@ -64,7 +62,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handles specific listen errors with friendly messages
+  // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
