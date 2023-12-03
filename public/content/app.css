@@ -4,14 +4,6 @@ body {
   background: linear-gradient(87.4deg, rgb(190, 246, 226) 1.9%, rgb(135, 243, 180) 49.7%, rgb(2, 255, 116) 100.5%);
 }
 
-div.row{
-  background-color: rgba(250, 193, 143, 0.727);
-  padding: 10px;
-  font-family: Verdana, sans-serif;
-  border-style: solid;
-  border-color: #ff0000;
-}
-
 .aboutme-title {
   text-align: center;
 }
