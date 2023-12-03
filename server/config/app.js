@@ -27,6 +27,47 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+// Authentication Section
+
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+
+// Creates a user model instance
+let userModel = require('../models/user');
+let User = userModel.User;
+
+// Set-up Express-Session
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// Initialize flash-connect
+app.use(flash());
+
+// Implement user authentication
+passport.use(User.createStrategy());
+
+// Serialize and Deserialize user information
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Middleware to attach displayName to res.locals
+app.use((req, res, next) => {
+  res.locals.displayName = req.user ? req.user.displayName : '';
+  next();
+});
+
+//Routes Section
+
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let eidRouter = require('../routes/eid');
@@ -45,7 +86,7 @@ app.post('/send', (req, res) => {
   // Creates a SMTP transporter object
   let transporter = nodemailer.createTransport({
     service: 'Outlook', 
-    auth: {
+    authentication: {
       user: process.env.EMAIL, // my hidden email for security purposes
       pass: process.env.EMAIL_PASSWORD // my hidden password for security purposes
     }
