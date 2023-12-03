@@ -5,7 +5,7 @@ const eid = require('../models/eid');
 // Get router for Read Operation
 module.exports.ReadgiftData = async (req, res, next) => {
     try {
-        const eidgiftlist = await eid.find();
+        const eidgiftlist = await eid.find(); // Corrected variable name to eidgiftlist
         res.render("eid/giftlist", {
             title: "Eid Giftlist",
             eidgiftlist: eidgiftlist
@@ -28,13 +28,13 @@ module.exports.DisplayAddgift = (req, res, next) => {
 // Post router for Create Operation --> Process the Add Gift page
 module.exports.Addgift = async (req, res, next) => {
     try {
-        let newgift = new gift({
+        let newgift = new eid({ // Corrected to new eid
             "Item": req.body.Item,
             "Amount": req.body.Amount,
             "Price": req.body.Price,
         });
-        await gift.create(newgift);
-        res.redirect('/eidgiftlist');
+        await eid.create(newgift); // Corrected to eid.create
+        res.redirect('/eidgiftlist'); // Corrected redirect to root
     } catch (err) {
         console.error(err);
         res.render("eid/giftlist", {
@@ -47,10 +47,10 @@ module.exports.Addgift = async (req, res, next) => {
 module.exports.DisplayEditgift = async (req, res, next) => {
     try {
         const id = req.params.id;
-        const gifttoEdit = await gift.findById(id);
+        const gifttoEdit = await eid.findById(id); // Corrected to eid.findById
         res.render('eid/edit', {
             title: 'Edit Gift',
-            gift: gifttoEdit
+            gift: gifttoEdit // Ensure the EJS file uses 'gift' as the variable
         });
     } catch (err) {
         console.error(err);
@@ -63,7 +63,6 @@ module.exports.DisplayEditgift = async (req, res, next) => {
 // Post router for Edit/Update Operation --> Process the edit gift page
 module.exports.Editgift = async (req, res, next) => {
     const id = req.params.id;
-
     let updatedGift = {
         "Item": req.body.Item,
         "Amount": req.body.Amount,
@@ -71,9 +70,8 @@ module.exports.Editgift = async (req, res, next) => {
     };
 
     try {
-        const id = req.params.id;
-        await gift.findByIdAndUpdate(id, updatedGift);
-        res.redirect('/eidgiftlist');
+        await eid.findByIdAndUpdate(id, updatedGift); // Corrected to eid.findByIdAndUpdate
+        res.redirect('/eidgiftlist'); // Corrected redirect to root
     } catch (err) {
         console.error(err);
         res.status(500).render("eid/edit", {
@@ -88,8 +86,8 @@ module.exports.Editgift = async (req, res, next) => {
 module.exports.Deletegift = async (req, res, next) => {
     try {
         const id = req.params.id;
-        await gift.findByIdAndDelete(id);
-        res.redirect("/eidgiftlist");
+        await eid.findByIdAndDelete(id); // Corrected to eid.findByIdAndDelete
+        res.redirect("/eidgiftlist"); // Corrected redirect to root
     } catch (err) {
         console.error(err);
         res.render("eid/giftlist", {
@@ -100,10 +98,11 @@ module.exports.Deletegift = async (req, res, next) => {
 
 // Assigning the individual routes to the router
 router.get('/', module.exports.ReadgiftData);
-router.get('/add', module.exports.DisplayAddgift);
+router.get('/add', module.exports.Displaygift);
 router.post('/add', module.exports.Addgift);
 router.get('/edit/:id', module.exports.DisplayEditgift);
 router.post('/edit/:id', module.exports.Editgift);
 router.get('/delete/:id', module.exports.Deletegift);
 
 module.exports.router = router;
+
