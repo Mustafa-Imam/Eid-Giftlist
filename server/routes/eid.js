@@ -14,7 +14,7 @@ router.post('/add', giftController.Addgift);
 // Get router for Edit/Update Operation --> Display the edit gift page
 router.get('/edit/:id', giftController.DisplayEditgift);
 
-// Post router for Edit/Update Operation --> Process the edit car page
+// Post router for Edit/Update Operation --> Process the edit gift page
 router.post('/edit/:id', giftController.Editgift);
 
 // Get router for Delete Operation
