@@ -85,8 +85,8 @@ router.get('/logout', function(req, res, next){
 router.get('/', function(req, res, next) {
     res.render('home', { title: 'Home', displayName: req.user ? req.user.displayName : '' });
 });
-router.get('/aboutme', function(req, res, next) {
-    res.render('aboutus', { title: 'About Me', displayName: req.user ? req.user.displayName : '' });
+router.get('/aboutus', function(req, res, next) {
+    res.render('aboutus', { title: 'About Us', displayName: req.user ? req.user.displayName : '' });
 });
 router.get('/contact', function(req, res, next) {
     res.render('contact', { title: 'Contact', displayName: req.user ? req.user.displayName : '' });
