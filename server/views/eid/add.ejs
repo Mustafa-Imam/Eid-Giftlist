@@ -1,4 +1,4 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header.ejs') %>
 
 <!-- Content for the Add page -->
 <div class="container">
@@ -19,17 +19,18 @@
                     <label for="amountTextField">Amount</label>
                     <input type="text" class="form-control"
                     id="amountTextField"
-                    placeholder="Enter the amount of gifts you want"
+                    placeholder="Enter the amount of gifts that you want"
                     name="Amount" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="priceTextField">Price</label>
+                    <label for="giftTextField">Gift</label>
                     <input type="text" class="form-control"
-                    id="priceTextField"
-                    placeholder="Enter the the gifts price"
-                    name="Price" required>
+                    id="giftTextField"
+                    placeholder="Enter the price of the gift"
+                    name="Gift" required>
                 </div>
+
 
                 <div class="form-group text-center mt-3"> <!-- Centered and with margin -->
                     <button class="btn btn-primary" type="submit">
@@ -45,4 +46,4 @@
     </div>
 </div>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer.ejs') %>

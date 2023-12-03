@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const eid = require('../models/eid');
+const gift = require('../models/eid');
 
 // Get router for Read Operation
 module.exports.ReadgiftData = async (req, res, next) => {
     try {
-        const eidgiftlist = await eid.find();
+        const eidgiftlist = await gift.find();
         res.render("eid/giftlist", {
             title: "Eid Giftlist",
             eidgiftlist: eidgiftlist

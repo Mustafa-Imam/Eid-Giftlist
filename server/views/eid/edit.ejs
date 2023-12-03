@@ -1,4 +1,4 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header.ejs') %>
 
 <!-- Content for the Edit page -->
 <div class="container">
@@ -11,9 +11,9 @@
                     <label for="itemTextField">Item</label>
                     <input type="text" class="form-control"
                     id="itemTextField"
-                    placeholder="Enter the gift you want"
+                    placeholder="Enter the gift that you want to edit"
                     name="Item" 
-                    value="<%= gift.Item %>"
+                    value="<%= car.Item %>"
                     required>
                 </div>
 
@@ -21,9 +21,9 @@
                     <label for="amountTextField">Amount</label>
                     <input type="text" class="form-control"
                     id="amountTextField"
-                    placeholder="Enter the amount of gifts you want"
+                    placeholder="Enter the amount of gifts that you want to edit"
                     name="Amount" 
-                    value="<%= gift.Amount %>"
+                    value="<%= car.Amount %>"
                     required>
                 </div>
 
@@ -31,9 +31,9 @@
                     <label for="priceTextField">Price</label>
                     <input type="text" class="form-control"
                     id="priceTextField"
-                    placeholder="Enter the gifts price"
+                    placeholder="Enter the price of the that you want to edit"
                     name="Price" 
-                    value="<%= gift.Price %>"
+                    value="<%= car.Price %>"
                     required>
                 </div>
 
@@ -51,4 +51,4 @@
     </div>
 </div> 
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer.ejs') %>
