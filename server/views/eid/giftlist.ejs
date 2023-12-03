@@ -81,11 +81,25 @@
     }
 
 
-    container-fluid d-flex justify-content-between {
-        position: fixed !important;
-        bottom: 0 !important;
-        width: 100% !important;
-    }
+    body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(80, 80, 80, 0.5);
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Adding a drop shadow at the top of the footer */
+  }
+
 
 </style>
 
