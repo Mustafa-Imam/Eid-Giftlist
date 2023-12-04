@@ -10,7 +10,6 @@ let app = express();
 
 let mongoose = require('mongoose');
 let URI = process.env.MONGODB_URI;
-//mongoose.connect('mongodb://127.0.0.1:27017/test');
 mongoose.connect(URI);
 let mongodDB = mongoose.connection;
 mongodDB.on("error", console.error.bind(console, "Connection Error"));
@@ -30,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 // Authentication Section
 
 let session = require('express-session');
+let MongoStore = require('connect-mongo'); // Import connect-mongo
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
@@ -39,9 +39,10 @@ let flash = require('connect-flash');
 let userModel = require('../models/user');
 let User = userModel.User;
 
-// Set-up Express-Session
+// Set-up Express-Session with MongoStore
 app.use(session({
   secret: "SomeSecret",
+  store: MongoStore.create({ mongoUrl: URI }),
   saveUninitialized: false,
   resave: false
 }));
@@ -83,30 +84,30 @@ app.post('/send', (req, res) => {
     return;
   }
 
-  // Creates a SMTP transporter object
+  // SMTP transporter object creation
   let transporter = nodemailer.createTransport({
-    service: 'Outlook', 
-    authentication: {
-      user: process.env.EMAIL, // my hidden email for security purposes
-      pass: process.env.EMAIL_PASSWORD // my hidden password for security purposes
+    service: 'Outlook',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD
     }
   });
 
   // Message object
   let message = {
-    from: process.env.EMAIL, // my hidden email
-    to: process.env.EMAIL, // my hidden email
-    subject: 'New Message from ' + req.body.email, // Includes user's email in subject
+    from: process.env.EMAIL,
+    to: process.env.EMAIL,
+    subject: 'New Message from ' + req.body.email,
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
     html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'
   };
 
-  // sends mail with defined transport object
+  // Send mail with the transport object
   transporter.sendMail(message, (error, info) => {
     if (error) {
       res.send("Error occurred.");
       console.log('Error occurred. ' + error.message);
-      return process.exit(1);
+      return;
     }
 
     console.log('Message sent: %s', info.messageId);
@@ -114,27 +115,22 @@ app.post('/send', (req, res) => {
   });
 });
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // Set locals, providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // renders the error page
+  // Render the error page
   res.status(err.status || 500);
-  res.render('error', 
-  {
+  res.render('error', {
     title: "Error"
-  }
-  );
+  });
 });
-  
+
 module.exports = app;
-
-
-
