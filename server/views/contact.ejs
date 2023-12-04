@@ -91,22 +91,4 @@
 
 
 
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Apply a fade-in effect to the form on page load
-        const form = document.querySelector('.contact-form');
-        form.style.opacity = '0';
-        form.style.transition = 'opacity 0.3s ease-in';
-
-        window.setTimeout(function() {
-            form.style.opacity = '1';
-        }, 500);
-    });
-</script>
-
-
-
-
-
 <%- include('partials/footer') %>
